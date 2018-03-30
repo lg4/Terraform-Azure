@@ -85,7 +85,7 @@ resource "azurerm_network_interface" "WordPress" {
 
 # Create Storage Account
 resource "azurerm_storage_account" "wordpress" {
-	name 					 = "WP-Storage"
+	name 					 = "tftestwpstorage"
 	location 				 = "${azurerm_resource_group.WordPress.location}"
 	resource_group_name 	 = "${azurerm_resource_group.WordPress.name}"
 	account_replication_type = "LRS"
