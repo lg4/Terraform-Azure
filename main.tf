@@ -120,14 +120,12 @@ resource "azurerm_virtual_machine" "WordPress" {
 	os_profile {
 		computer_name  = "WordPress"
 		admin_username = "wpadmin"
+		admin_password = "Password123"
 	}
 	
 	os_profile_linux_config {
-		disable_password_authentication = true
-		ssh_keys {
-			path	 = "/home/wpadmin/.ssh/authorized_keys"
-			key_data = "ssh-rsa ABC123"
-		}
+		disable_password_authentication = false
+
 	}
 	
 	tags {
