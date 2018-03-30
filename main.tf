@@ -48,7 +48,7 @@ resource "azurerm_network_security_group" "WordPress_NSG" {
 	name 				= "WP-NSG"
 	location 			= "${azurerm_resource_group.WordPress.location}"
 	resource_group_name = "${azurerm_resource_group.WordPress.name}"
-	;
+	
 	security_rule {
 		name 						= "SSH_Public"
 		priority 					= "101"
