@@ -72,9 +72,10 @@ resource "azurerm_network_interface" "WordPress" {
 	resource_group_name = "${azurerm_resource_group.WordPress.name}"
 	
 	ip_configuration {
-		name 						 = "Primary"
-		subnet_id 					 = "${azurerm_subnet.WordPress.id}"
-		public_ip_address_allocation = "dynamic"
+		name 						  = "Primary"
+		subnet_id 					  = "${azurerm_subnet.WordPress.id}"
+		private_ip_address_allocation = "dynamic"
+		public_ip_address_id 		  = "${azurerm_public_ip.WordPress.id}"
 	}
 	
 	tags {
@@ -83,7 +84,7 @@ resource "azurerm_network_interface" "WordPress" {
 }
 
 # Create Storage Account
-resource "azurerm_storage_account" "WordPress" {
+resource "azurerm_storage_account" "wordpress" {
 	name 					 = "WP-Storage"
 	location 				 = "${azurerm_resource_group.WordPress.location}"
 	resource_group_name 	 = "${azurerm_resource_group.WordPress.name}"
