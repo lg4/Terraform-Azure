@@ -125,7 +125,7 @@ resource "azurerm_virtual_machine" "WordPress_VM" {
 		disable_password_authentication = true
 		ssh_keys {
 			path	 = "/home/wpadmin/.ssh/authorized_keys"
-			key_data = "ssh-rsa ABC123
+			key_data = "ssh-rsa ABC123"
 		}
 	}
 	
