@@ -12,7 +12,7 @@ resource "azurerm_resource_group" "WordPress" {
 }
 
 # Create Virtual Network
-resource "azurerm_virtual_network" "WordPress_Network" {
+resource "azurerm_virtual_network" "WordPress" {
 	name 				= "WP-vNet"
 	address_space 		= ["10.0.0.0/16"]
 	location 			= "${azurerm_resource_group.WordPress.location}"
@@ -24,7 +24,7 @@ resource "azurerm_virtual_network" "WordPress_Network" {
 }
 
 # Create Subnet
-resource "azure_subnet" "WordPress_Subnet" {
+resource "azure_subnet" "WordPress" {
 	name 				 = "WP-Public"
 	resource_group_name  = "${azurerm_resource_group.WordPress.name}"
 	virtual_network_name = "${azurerm_virtual_network.WordPress.name}"
@@ -32,7 +32,7 @@ resource "azure_subnet" "WordPress_Subnet" {
 }
 
 # Create Public IP
-resource "azurerm_public_ip" "WordPress_PublicIP" {
+resource "azurerm_public_ip" "WordPress" {
 	name 						 = "WP-PublicIP"
 	location 					 = "${azurerm_resource_group.WordPress.location}"
 	resource_group_name 		 = "${azurerm_resource_group.WordPress.name}"
@@ -44,7 +44,7 @@ resource "azurerm_public_ip" "WordPress_PublicIP" {
 }
 
 # Create Network Security Group
-resource "azurerm_network_security_group" "WordPress_NSG" {
+resource "azurerm_network_security_group" "WordPress" {
 	name 				= "WP-NSG"
 	location 			= "${azurerm_resource_group.WordPress.location}"
 	resource_group_name = "${azurerm_resource_group.WordPress.name}"
@@ -66,7 +66,7 @@ resource "azurerm_network_security_group" "WordPress_NSG" {
 }
 
 # Create Network Interface
-resource "azurerm_network_interface" "WordPress_eth0" {
+resource "azurerm_network_interface" "WordPress" {
 	name 				= "WP-Eth0"
 	location 			= "${azurerm_resource_group.WordPress.location}"
 	resource_group_name = "${azurerm_resource_group.WordPress.name}"
@@ -83,7 +83,7 @@ resource "azurerm_network_interface" "WordPress_eth0" {
 }
 
 # Create Storage Account
-resource "azurerm_storage_account" "WordPress_StorageAccount" {
+resource "azurerm_storage_account" "WordPress" {
 	name 					 = "WP-Storage"
 	location 				 = "${azurerm_resource_group.WordPress.location}"
 	resource_group_name 	 = "${azurerm_resource_group.WordPress.name}"
@@ -95,7 +95,7 @@ resource "azurerm_storage_account" "WordPress_StorageAccount" {
 	}
 }
 # Create Virtual Machine
-resource "azurerm_virtual_machine" "WordPress_VM" {
+resource "azurerm_virtual_machine" "WordPress" {
 	name 				  = "WP-VM"
 	location 			  = "${azurerm_resource_group.WordPress.location}"
 	resource_group_name   = "${azurerm_resource_group.WordPress.name}"
