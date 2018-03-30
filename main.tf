@@ -24,7 +24,7 @@ resource "azurerm_virtual_network" "WordPress" {
 }
 
 # Create Subnet
-resource "azure_subnet" "WordPress" {
+resource "azurerm_subnet" "WordPress" {
 	name 				 = "WP-Public"
 	resource_group_name  = "${azurerm_resource_group.WordPress.name}"
 	virtual_network_name = "${azurerm_virtual_network.WordPress.name}"
