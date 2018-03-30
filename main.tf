@@ -113,7 +113,7 @@ resource "azurerm_virtual_machine" "WordPress" {
 	storage_image_reference {
 		publisher = "RedHat"
 		offer	  = "RHEL"
-		sku		  = "7.4"
+		sku		  = "7.3"
 		version   = "latest"
 	}
 	
